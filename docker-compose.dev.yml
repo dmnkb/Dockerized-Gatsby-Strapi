@@ -1,0 +1,51 @@
+version: '3.8'
+
+services:
+    reverse-proxy:
+        image: nginx:1.17.10
+        depends_on:
+            - strapi
+            - gatsby
+        volumes:
+            - ./reverse_proxy/nginx.dev.conf:/etc/nginx/nginx.conf
+        ports:
+            - 80:80
+
+    strapi:
+        image: strapi/strapi
+        environment:
+            DATABASE_CLIENT: postgres
+            DATABASE_NAME: strapi
+            DATABASE_HOST: postgres
+            DATABASE_PORT: 5432
+            DATABASE_USERNAME: strapi
+            DATABASE_PASSWORD: strapi
+        volumes:
+            - ./strapi:/srv/strapi
+        ports:
+            - '1337:1337'
+        depends_on:
+            - postgres
+
+    gatsby:
+        stdin_open: true
+        tty: true
+        build:
+            context: ./gatsby
+            dockerfile: Dockerfile.dev
+        volumes:
+            - ./gatsby/:/usr/src/gatsby
+        environment:
+            - NODE_ENV=development
+            - GATSBY_WEBPACK_PUBLICPATH=/
+        ports:
+            - 8000:8000
+
+    postgres:
+        image: postgres
+        environment:
+            POSTGRES_DB: strapi
+            POSTGRES_USER: strapi
+            POSTGRES_PASSWORD: strapi
+        volumes:
+            - ./data:/var/lib/postgresql/data

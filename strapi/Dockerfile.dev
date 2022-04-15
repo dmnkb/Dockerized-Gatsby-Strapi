@@ -1,0 +1,19 @@
+FROM node:16-alpine
+
+# Server path
+WORKDIR /usr/src/strapi
+
+# Copy package.json that holds our configuration
+COPY ./package.json .
+
+# Install local dependencies
+RUN yarn install --verbose && yarn cache clean
+
+#
+COPY . .
+
+#
+EXPOSE 1337
+
+# Run 'strapi develop' and make it accessible from outside
+CMD ["yarn", "develop"]

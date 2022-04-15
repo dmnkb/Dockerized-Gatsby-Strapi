@@ -34,7 +34,7 @@ services:
             context: ./gatsby
             dockerfile: Dockerfile.dev
         volumes:
-            - ./gatsby/:/usr/src/gatsby
+            - ./gatsby/src/:/usr/src/gatsby/src
         environment:
             - NODE_ENV=development
             - GATSBY_WEBPACK_PUBLICPATH=/
@@ -49,3 +49,6 @@ services:
             POSTGRES_PASSWORD: strapi
         volumes:
             - ./data:/var/lib/postgresql/data
+
+volumes:
+    postgres:

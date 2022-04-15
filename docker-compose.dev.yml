@@ -37,7 +37,8 @@ services:
             dockerfile: Dockerfile.dev
         volumes:
             - ./gatsby/src/:/usr/src/gatsby/src
-            - ./gatsby/gatsby-config.ts:/usr/src/gatsby/gatsby-config.ts
+            - ./gatsby/gatsby-config.js:/usr/src/gatsby/gatsby-config.js
+            - ./gatsby/cronjob.js:/usr/src/gatsby/cronjob.js
         environment:
             - NODE_ENV=development
             - GATSBY_WEBPACK_PUBLICPATH=/

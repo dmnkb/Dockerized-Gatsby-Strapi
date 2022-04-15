@@ -22,4 +22,7 @@ COPY . .
 EXPOSE 8000 9929 9230
 
 # Run 'gatsby develop' and make it accessible from outside
-CMD ["yarn", "develop", "-H", "0.0.0.0" ]
+CMD ["yarn", "build"]
+
+# Start the conjob script in order to rebuild the site every 5 minutes
+RUN node cronjob.js

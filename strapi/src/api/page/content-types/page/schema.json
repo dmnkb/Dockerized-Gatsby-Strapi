@@ -4,8 +4,7 @@
   "info": {
     "singularName": "page",
     "pluralName": "pages",
-    "displayName": "Pages",
-    "description": ""
+    "displayName": "Pages"
   },
   "options": {
     "draftAndPublish": true

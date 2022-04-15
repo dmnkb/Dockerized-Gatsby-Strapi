@@ -37,6 +37,7 @@ services:
             dockerfile: Dockerfile.dev
         volumes:
             - ./gatsby/src/:/usr/src/gatsby/src
+            - ./gatsby/gatsby-config.ts:/usr/src/gatsby/gatsby-config.ts
         environment:
             - NODE_ENV=development
             - GATSBY_WEBPACK_PUBLICPATH=/

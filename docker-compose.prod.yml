@@ -7,7 +7,7 @@ services:
             - strapi
             - gatsby
         volumes:
-            - ./reverse_proxy/nginx.dev.conf:/etc/nginx/nginx.conf
+            - ./reverse_proxy/nginx.prod.conf:/etc/nginx/nginx.conf
         ports:
             - 80:80
 
@@ -43,7 +43,7 @@ services:
             - NODE_ENV=production
             - GATSBY_WEBPACK_PUBLICPATH=/
         ports:
-            - 8000:8000
+            - 3000:3000
 
     postgres:
         image: postgres

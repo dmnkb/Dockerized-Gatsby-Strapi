@@ -1,13 +1,8 @@
-const cron = require('node-cron')
+const cp = require('child_process')
 
-if (process.env.NODE_ENV === 'production') {
-	cron.schedule('0 */5 * * * *', () => {
-		console.log('Start rebuilding Gatsby (5 minute interval)')
-
-		const child = require('child_process').exec('yarn build')
-		child.stdout.pipe(process.stdout)
-		child.on('exit', function () {
-			console.log('End rebuilding Gatsby (5 minute interval)')
-		})
-	})
-}
+console.log(`Start rebuilding Gatsby`)
+const child = cp.exec('yarn build')
+child.stdout.pipe(process.stdout)
+child.on('exit', function () {
+	console.log('Finished rebuilding Gatsby')
+})

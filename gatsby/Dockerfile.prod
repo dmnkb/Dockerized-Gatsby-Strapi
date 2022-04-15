@@ -12,17 +12,20 @@ COPY ./package.json .
 # Needed for parcel (Which in turn is needed for building gatsby)
 RUN apk add python3 make g++
 
-# Install local dependencies
-RUN yarn install && yarn cache clean
+# Install gatsby, express and node-cron
+RUN yarn install
 
-#
+# Install PM2 globally as node progress manager to start and monitor an express server
+RUN yarn global add pm2
+
+# Clean cache
+RUN yarn cache clean
+
+# Copy everything over
 COPY . .
 
-# Also exposing VSCode debug ports
-EXPOSE 8000 9929 9230
+# Run cronjob script to rebuild the page periodically and serve via express
+CMD pm2 start cronjob.js --no-autorestart --instances 1 --cron "*/30 * * * *" server.js && pm2 logs
 
-# Start the conjob script in order to rebuild the site every 5 minutes
-# RUN node cronjob.js
-
-# Run 'gatsby develop' and make it accessible from outside
-CMD ["node", "cronjob.js"]
+# Expose express server
+EXPOSE 3000

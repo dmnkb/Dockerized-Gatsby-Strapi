@@ -12,7 +12,6 @@ module.exports = {
 			resolve: 'gatsby-source-strapi',
 			options: {
 				apiURL: process.env.GATSBY_API_URL,
-				apiURL: 'http://localhost:1337',
 				collectionTypes: [
 					{
 						singularName: 'page',

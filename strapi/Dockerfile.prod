@@ -15,5 +15,5 @@ COPY . .
 #
 EXPOSE 1337
 
-# Run 'strapi start' and make it accessible from outside
-CMD ["yarn", "start"]
+# Build and run strapi
+CMD yarn build && yarn start

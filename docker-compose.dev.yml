@@ -1,16 +1,6 @@
 version: '3.8'
 
 services:
-    reverse-proxy:
-        image: nginx:1.17.10
-        depends_on:
-            - strapi
-            - gatsby
-        volumes:
-            - ./reverse_proxy/nginx.dev.conf:/etc/nginx/nginx.conf
-        ports:
-            - 80:80
-
     strapi:
         build:
             context: ./strapi
@@ -28,22 +18,6 @@ services:
             - '1337:1337'
         depends_on:
             - postgres
-
-    gatsby:
-        stdin_open: true
-        tty: true
-        build:
-            context: ./gatsby
-            dockerfile: Dockerfile.dev
-        volumes:
-            - ./gatsby/src/:/usr/src/gatsby/src
-            - ./gatsby/gatsby-config.js:/usr/src/gatsby/gatsby-config.js
-            - ./gatsby/cronjob.js:/usr/src/gatsby/cronjob.js
-        environment:
-            - NODE_ENV=development
-            - GATSBY_WEBPACK_PUBLICPATH=/
-        ports:
-            - 8000:8000
 
     postgres:
         image: postgres

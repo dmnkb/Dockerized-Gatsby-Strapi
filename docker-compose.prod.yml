@@ -7,7 +7,7 @@ services:
             - strapi
             - gatsby
         volumes:
-            - ./reverse_proxy/nginx.prod.conf:/etc/nginx/nginx.conf
+            - ./reverse_proxy/nginx.conf:/etc/nginx/nginx.conf
         ports:
             - 80:80
 
@@ -40,7 +40,6 @@ services:
             - ./gatsby/gatsby-config.js:/usr/src/gatsby/gatsby-config.js
             - ./gatsby/cronjob.js:/usr/src/gatsby/cronjob.js
         environment:
-            - NODE_ENV=production
             - GATSBY_WEBPACK_PUBLICPATH=/
         ports:
             - 3000:3000

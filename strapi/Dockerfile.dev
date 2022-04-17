@@ -7,7 +7,7 @@ WORKDIR /usr/src/strapi
 COPY ./package.json .
 
 # Install local dependencies
-RUN yarn install --verbose && yarn cache clean
+RUN yarn install && yarn cache clean
 
 #
 COPY . .

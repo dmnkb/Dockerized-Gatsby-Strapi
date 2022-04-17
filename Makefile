@@ -10,4 +10,5 @@ dev-docker-build:
 		cd gatsby && yarn develop
 prod:
 	@NODE_ENV=production \
-		docker-compose -f docker-compose.prod.yml up --force-recreate --build -d && docker image prune -f
+		docker-compose -f docker-compose.prod.yml up --force-recreate --build -d && docker image prune -f && \
+		docker-compose -f docker-compose.prod.yml logs

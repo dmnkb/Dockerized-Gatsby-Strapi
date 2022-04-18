@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { useStaticQuery, graphql } from 'gatsby'
 
 // styles
 const pageStyles = {
@@ -127,6 +128,24 @@ const links = [
 
 // markup
 const IndexPage = () => {
+	const strapiData = useStaticQuery(graphql`
+		query StaticPageQuery {
+			allStrapiPage {
+				edges {
+					node {
+						id
+						Title
+						Content {
+							data {
+								id
+							}
+						}
+					}
+				}
+			}
+		}
+	`)
+
 	return (
 		<main style={pageStyles}>
 			<title>Home Page</title>
@@ -138,6 +157,14 @@ const IndexPage = () => {
 				</span>
 				🎉🎉🎉
 			</h1>
+			<h2>Pages retrieved from strapi:</h2>
+			<ul style={{ marginBottom: '4em' }}>
+				{Object.values(strapiData.allStrapiPage.edges).map(
+					(page: any, i: number) => {
+						return <li key={i}>{page.node['Title']}</li>
+					}
+				)}
+			</ul>
 			<p style={paragraphStyles}>
 				Edit <code style={codeStyles}>src/pages/index.tsx</code> to see
 				this page update in real-time. 😎

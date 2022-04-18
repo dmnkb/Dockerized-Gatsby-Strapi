@@ -8,7 +8,7 @@
 		"gatsby"
 	],
 	"scripts": {
-		"develop": "gatsby develop",
+		"develop": "ENABLE_GATSBY_REFRESH_ENDPOINT=1 gatsby develop",
 		"start": "gatsby develop",
 		"build": "gatsby build",
 		"serve": "gatsby serve",

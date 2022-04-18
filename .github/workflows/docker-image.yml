@@ -19,4 +19,4 @@ jobs:
                   echo API_TOKEN_SALT=${{ secrets.API_TOKEN_SALT }} >> ./strapi/.env
                   echo ADMIN_JWT_SECRET=${{ secrets.ADMIN_JWT_SECRET }} >> ./strapi/.env
             - name: Build the Docker image
-              run: docker-compose -f "docker-compose.prod.yml" up -d --build
+              run: docker-compose -f docker-compose.prod.yml up --force-recreate --build -d && docker image prune -f

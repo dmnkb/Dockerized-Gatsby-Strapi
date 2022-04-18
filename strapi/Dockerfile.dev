@@ -15,5 +15,5 @@ COPY . .
 #
 EXPOSE 1337
 
-# Run 'strapi develop' and make it accessible from outside
-CMD ["yarn", "develop"]
+# Run strapi in development mode
+CMD NODE_ENV=development yarn develop

@@ -6,14 +6,20 @@ WORKDIR /usr/src/strapi
 # Copy package.json that holds our configuration
 COPY ./package.json .
 
-# Install local dependencies
-RUN yarn install && yarn cache clean && yarn build
+# Install dependencies and build admin panel
+RUN yarn install && NODE_ENV=production yarn build
 
-#
+# Install PM2 globally as node progress manager to start and monitor strapi
+RUN yarn global add pm2
+
+# Clean cache
+RUN yarn cache clean
+
+# Copy everything over
 COPY . .
+
+# Run strapi inside pm2
+CMD NODE_ENV=production pm2-runtime start npm --name strapi --  start
 
 #
 EXPOSE 1337
-
-# Build and run strapi
-CMD yarn build && yarn start

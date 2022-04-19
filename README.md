@@ -12,6 +12,27 @@ I wanted to create a modern web environment that is *convenience-first* (similar
 
 ### Getting started
 
-### Preset configuration
+1. Clone the repository
+2. Install the gatsby CLI globally on your system `npm install -g gatsby-cli` or `yarn global add gatsby-cli`
+3. `cd` into the *gatsby* folder and install the dependencies `npm install` or `yarn`
+4. `cd` into the *gatsby* folder and add an *.env* File with following contents:
+```
+HOST=0.0.0.0
+PORT=1337
+APP_KEYS=<YOUR_APP_KEYS>
+API_TOKEN_SALT=<YOUR_API_TOKEN_SALT>
+ADMIN_JWT_SECRET=<ADMIN_JWT_SECRET>
+JWT_SECRET=<JWT_SECRET>
+```
+To generate *.env* contents you could install a separate strapi instance using `npx create-strapi-app@latest my-project --quickstart
+` which can be deleted afterwards.
+
+5. Run `make dev` in order to run Strapi and a Postgres database dockerized and Gatsby in development mode.
+6. Locate Gatsby under `localhost:8000` and Strapi under `localhost:1337`
+7. In order to make Strapi expose the preconfigured *Pages* collection type, navigate to Settings -> Roles -> Public and make sure "find" under *Pages* and everything under *Content type builders* is checked. If gatsby is throwing an error please rebuild the data layer or refer to the Gatsby documentation.
+
+### Architechture
+
+
 
 ### Troubleshooting

@@ -33,6 +33,10 @@ To generate *.env* contents you could install a separate strapi instance using `
 
 ### Architechture
 
+<img width="50%" alt="image" src="https://user-images.githubusercontent.com/44138768/164094359-af127846-d24b-4af7-a145-f81a7be5d011.png">
+<img width="50%" alt="image" src="https://user-images.githubusercontent.com/44138768/164094421-acf5cbaa-a139-45b8-92b3-1115e597aaee.png">
 
 
 ### Troubleshooting
+
+As pointed out at the beginning this project is aimed at convenience and a nice developer experience. I'm open to suggestions and contributions! 🚀

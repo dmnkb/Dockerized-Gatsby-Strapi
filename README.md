@@ -10,7 +10,7 @@ I'm open to suggestions and contributions! 🚀
 
 ### Motivation
 
-I wanted to create a modern web environment that is *convenience-first* (similar to WordPress with the [ACF](https://www.advancedcustomfields.com/) plugin installed, but less monolithic), uses a modern tech-stack under the hood (Node.JS), is cheap to host (Any Docker host, really), and SEO-friendly ([SSG](https://www.gatsbyjs.com/blog/choosing-the-best-page-rendering-modes-for-your-gatsby-site/#gatsby-skip-here)).
+I wanted to create a modern web environment that is *convenience-first* (similar to WordPress with the [ACF](https://www.advancedcustomfields.com/) plugin installed, but less monolithic), uses a modern tech stack under the hood (Node.JS), is cheap to host (Any Docker host, really), and SEO-friendly ([SSG](https://www.gatsbyjs.com/blog/choosing-the-best-page-rendering-modes-for-your-gatsby-site/#gatsby-skip-here)).
 
 ### Getting started
 

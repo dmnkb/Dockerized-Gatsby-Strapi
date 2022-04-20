@@ -17,7 +17,7 @@ I wanted to create a modern web environment that is *convenience-first* (similar
 1. Clone the repository
 2. Install the gatsby CLI globally on your system `npm install -g gatsby-cli` or `yarn global add gatsby-cli`
 3. `cd` into the *gatsby* folder and install the dependencies `npm install` or `yarn`
-4. `cd` into the *gatsby* folder and add a *.env* file with the following contents:
+4. `cd` into the *strapi* folder and add a *.env* file with the following contents:
 ```
 HOST=0.0.0.0
 PORT=1337

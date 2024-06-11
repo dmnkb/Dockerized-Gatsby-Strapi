@@ -2,7 +2,7 @@
 ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=round)
 
 # Dockerized-Gatsby-Strapi
-*✍️ WiP*
+*👉 I stopped working on this at some point, but please feel free to use this as a basis or to contribute*
 
 This repository aims to serve as a starter kit for a self-hosted [Jamstack](https://jamstack.org/) website using [Gatsby](https://www.gatsbyjs.com/) and [Strapi](https://strapi.io/) bootstrapped as Docker containers ready to be deployed.
 
